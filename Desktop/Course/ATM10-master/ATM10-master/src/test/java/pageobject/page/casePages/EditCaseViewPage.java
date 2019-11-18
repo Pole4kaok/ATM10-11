@@ -44,7 +44,7 @@ public class EditCaseViewPage extends AbstractPage {
 
     public EditCaseViewPage getCheckList(){
         List checklist = driver.findElements(By.cssSelector(".cc-checklistTable"));
-        Assert.assertTrue(checklist.size()==0,"It is visible. Or not. Maybe wrong selector");
+        Assert.assertFalse(checklist.size()==0,"It is visible. Or not. Maybe wrong selector");
         return this;
     }
 }

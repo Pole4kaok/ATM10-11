@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobject.page.*;
 import pageobject.page.casePages.*;
+import reporting.MyLogger;
 import service.CaseCreator;
 import service.PersonCreator;
 import service.UserCreator;
@@ -40,9 +41,12 @@ public class CreateCaseTest extends CommonConditions {
         CaseModel newCase = CaseCreator.withDataFromProperties();
         AddPartyPage addPartyPage = new AddPartyPage().addPartyRoleType("Party","Defendant")
                 .addPerson(testPerson).addLegalRep();
+        MyLogger.info("Added party");
         AddCaseEventPage addCaseEventPage = new CaseEventPage().newCaseEvent("Filing - Bundle").addCaseEvent();
+        MyLogger.info("Added case event");
         EditCaseViewPage editCaseViewPage = new EditCaseViewPage().addCaseCaptionAndTitle(newCase);
+        MyLogger.info("Added case caption and title");
         List checklist = driver.findElements(By.cssSelector(".cc-checklistTable"));
-        Assert.assertTrue(checklist.size()==0,"It is visible. Or not. Maybe wrong selector");
+        Assert.assertTrue(false,"It is visible. Or not. Maybe wrong selector");
     }
 }

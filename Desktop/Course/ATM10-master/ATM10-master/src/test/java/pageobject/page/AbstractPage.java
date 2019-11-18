@@ -9,6 +9,7 @@ import static pageobject.page.MainPage.SAVEBTN_LOCATOR;
 
 import driver.DriverDecorator;
 import driver.DriverSingleton;
+import reporting.MyLogger;
 
 public class AbstractPage {
     protected WebDriver driver;
@@ -16,7 +17,12 @@ public class AbstractPage {
     public AbstractPage(){this.driver = DriverSingleton.getDriver();}
 
     public void waitElementClickable(By locator){
-        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(locator));
+        try{
+        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(locator));}
+        catch(TimeoutException e){
+            MyLogger.error("Waited too long to click:" + locator + ", sorry");
+
+        }
     }
 
     public void waitElementInvisible(By locator){
@@ -39,11 +45,23 @@ public class AbstractPage {
         });
     }
     public WebElement findElement(By by){
-        WebElement webElement = driver.findElement(by);
+        WebElement webElement = null;// = driver.findElement(by);
+        try
+        {
+            webElement = driver.findElement(by);
+        }
+        catch (NoSuchElementException e)
+        {
+            MyLogger.error("BLA BLA");
+            throw new Exception("SSSS");
+        }
+        finally
+        {
+            return webElement;
+        }
        /* if(driver instanceof JavascriptExecutor){
             ((JavascriptExecutor)driver).executeScript("arguments[0].style.border='3px solid red'", webElement);
         }*/
-        return webElement;
     }
 
     public void saveChanges(){

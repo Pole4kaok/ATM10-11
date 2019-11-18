@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import reporting.MyLogger;
 import service.TestDataReader;
 
 
@@ -21,11 +23,12 @@ public class LoginPage extends AbstractPage {
             driver.findElement(USERNAME_LOCATOR).sendKeys(user.getUsername());
             driver.findElement(PASSWORD_LOCATOR).sendKeys(user.getPassword());
             driver.findElement(LOGINBTN_LOCATOR).click();
+            MyLogger.info("Successfully logged in");
             return new MainPage();
         }
 
         public LoginPage open(){
-            driver.get(TestDataReader.getTestData(PAGE_URL));
+            driver.get(new TestDataReader().getTestData(PAGE_URL));
             return this;
         }
 }

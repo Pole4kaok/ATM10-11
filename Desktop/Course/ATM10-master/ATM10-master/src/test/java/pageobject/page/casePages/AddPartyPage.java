@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pageobject.page.AbstractPage;
+import reporting.MyLogger;
 
 public class AddPartyPage extends AbstractPage {
     protected static final By PARTY_MENU_LOCATOR = By.id("menuItem-10045-1-main");
@@ -24,6 +25,7 @@ public class AddPartyPage extends AbstractPage {
         setPartyType(type);
         setPartyRole(role);
         saveChanges();
+        MyLogger.info("Successfully added party");
         return this;
     }
 

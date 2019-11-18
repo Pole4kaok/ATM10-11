@@ -36,8 +36,9 @@ public class TestListener implements ITestListener{
     public void onFinish(ITestContext iTestContext) { }
 
     private void saveScreenshot(){
-        /*DriverSingleton creator = new ChromeCreator(); // can be FirefoxDriverCreator
-        WebDriver driver = creator.getDriver();
+        //DriverSingleton creator = new ChromeCreator(); // can be FirefoxDriverCreator
+      //  WebDriver driver = creator.getDriver();
+
         File screenCapture = ((TakesScreenshot) DriverSingleton
                 .getDriver())
                 .getScreenshotAs(OutputType.FILE);
@@ -48,7 +49,7 @@ public class TestListener implements ITestListener{
                             ".png"));
         } catch (IOException e) {
             log.error("Failed to save screenshot: " + e.getLocalizedMessage());
-        }*/
+        }
     }
 
     private String getCurrentTimeAsString(){

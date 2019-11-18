@@ -1,0 +1,14 @@
+18:15:23 INFO  MyLogger.info - Successfully logged in
+18:15:32 INFO  MyLogger.info - Successfully added party
+18:15:40 INFO  MyLogger.info - Added party
+18:21:56 INFO  MyLogger.info - Successfully logged in
+18:22:04 INFO  MyLogger.info - Successfully added party
+18:22:12 INFO  MyLogger.info - Added party
+18:26:46 INFO  MyLogger.info - Successfully logged in
+18:32:42 INFO  MyLogger.info - Successfully logged in
+18:32:50 INFO  MyLogger.info - Successfully added party
+18:32:57 INFO  MyLogger.info - Added party
+18:36:38 INFO  MyLogger.info - Successfully logged in
+18:36:46 INFO  MyLogger.info - Successfully added party
+18:36:54 INFO  MyLogger.info - Added party
+18:37:05 ERROR MyLogger.error - Waited too long, sorry
